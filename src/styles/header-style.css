@@ -1,0 +1,23 @@
+.navlist {
+    list-style-type: none;
+    display: flex;
+    align-items: start;
+    gap: 80px; /* kanske ändra till % */
+}
+
+.home, .sell, .about {
+    text-decoration: none;
+    color: #FFFEFE;
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 60%;
+    flex-shrink: 0;
+    background: linear-gradient(0deg, #531073 16.04%, rgba(191, 139, 39, 0.53) 100%);
+    /* max-width: 100%; */
+}
+
