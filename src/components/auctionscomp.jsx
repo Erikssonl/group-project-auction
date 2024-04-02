@@ -15,11 +15,9 @@ const Auctionscomp = () => {
             })
     }, []);
 
-
-
   return (
     <div className='allAuctions-wrap'>
-        
+
         {allAuctions.map((auction, idx)=>(
             <div className='auction-wrap' key={idx}>
                 <h2>{auction.Title}</h2>
