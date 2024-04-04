@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Auctionscomp from '../components/auctionscomp'
+import SearchComp from '../components/SearchComp'
 
 const Home = () => {
     const [activeAuctions, setActiveAuctions] = useState([])
@@ -40,6 +41,7 @@ const Home = () => {
 
   return (
     <div>
+        <SearchComp allAuctions={allAuctions}/>
         <Auctionscomp activeAuctions={activeAuctions}/>
     </div>
   )
