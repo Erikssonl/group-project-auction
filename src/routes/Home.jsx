@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div>
-        <SearchComp />
+        <SearchComp allAuctions={allAuctions}/>
         <Auctionscomp activeAuctions={activeAuctions}/>
     </div>
   )
