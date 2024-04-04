@@ -1,7 +1,7 @@
-import {Routes, Route} from react-router-dom;
-import Home from './routes/Home';
-import Sell from './routes/Sell';
-import About from './routes/About';
+import {Routes, Route} from "react-router-dom";
+import Home from '../routes/Home';
+import Sell from '../routes/Sell';
+import About from '../routes/About'
 
 const Switch = () => {
     return (
