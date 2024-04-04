@@ -1,13 +1,11 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from 'react';
+import AuctionDetails from './components/AuctionDetails.jsx'; 
 
 function App() {
 
   return (
-    <>
-
-    </>
-  )
+   
+  );
 }
 
-export default App
+export default App;
