@@ -1,6 +1,7 @@
 
-
 import { useState, useRef } from 'react';
+
+import "../styles/searchcomp-style.css";
 
 function SearchComp({allAuctions}) {
 
@@ -17,9 +18,9 @@ function SearchComp({allAuctions}) {
   return (
     <>
 
-        <div>
-            <input ref={searchInput} type="text" placeholder="Search for an auction..." />
-            <button onClick={handelFilter}>Search</button>
+        <div className='search'>
+            <input ref={searchInput} type="text" placeholder="Sök auktion här..." />
+            <button className='searchBtn' onClick={handelFilter}>Sök</button>
         </div>
         <div>
             {filterSearch.map((auction, idx) =>
