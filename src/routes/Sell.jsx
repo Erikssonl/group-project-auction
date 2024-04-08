@@ -11,8 +11,17 @@ const Sell = () => {
         <p>Title</p>
         <input type="text" placeholder='Ange föremålets titel...' />
         <p>Beskrivning</p>
+        <input type="text" placeholder='Beskriv föremålet...' />
+        <p>Startdatum</p>
+        <input type="datetime-local" />
+        <p>Sludatum</p>
+        <input type="datetime-local"/>
+        <p>Utgångspris</p>
+        <input type="number" />
+        <p>Namn</p>
+        <input type="text" placeholder='Ange ditt namn...' />
       </div>
-    </div>
+    </div> 
   )
 }
 export default Sell
