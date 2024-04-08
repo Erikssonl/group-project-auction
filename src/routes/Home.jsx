@@ -34,6 +34,7 @@ const Home = () => {
     
                 .catch((error) => {
                     console.error("Fetching error:", error)
+                    setAllAuctions([])
                 })
         }
         getFromAuctionAPI()
