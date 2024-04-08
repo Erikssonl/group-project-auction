@@ -3,7 +3,7 @@ import Home from '../routes/Home';
 import Sell from '../routes/Sell';
 import About from '../routes/About'
 
-const Switch = () => {
+const SwitchComponent = () => {
     return (
         <div className="routes-wrapper">
             <Routes>
@@ -17,4 +17,4 @@ const Switch = () => {
     
 }
 
-export default Switch
+export default SwitchComponent;
