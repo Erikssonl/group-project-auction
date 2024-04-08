@@ -1,11 +1,14 @@
-button {
-    background-color: rgb(189, 189, 189);
-    padding: 10px;   
-    border: none;
+.searchBtn {
+    background-color: rgba(191, 138, 39, 62%);
+    padding: 5px; 
+    width: 60px;  
+    border-radius: 6px;
+    border: 1px solid;
+    margin-left: 1px;
 }
 
 button:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -14,10 +17,15 @@ button:active {
 }
 
 input {
-    padding: 10px;
-    width: 40%;
+    padding: 7px;
+    width: 280px;
+    border: 1px solid;
+    border-radius: 6px;
+    text-align: center;
 }
 
-#form {
+.search {
     display: flex;
+    margin-top: 30px;
+    margin-left: 40px;
 }
