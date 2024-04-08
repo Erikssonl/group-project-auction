@@ -1,7 +1,15 @@
 import '../styles/sellcomp-style.css'
 import Sellinfocomp from "../components/Sellinfocomp"
+import { useState } from 'react'
 
 const Sell = () => {
+  const [titel, setTitle] = useState("");
+  const [descript, setDescript] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [startPrice, setStartPrice] = useState("");
+  const [name, setName] = useState("");
+
   return (
     <div className='sell-wrap'>
       <Sellinfocomp/>
@@ -20,8 +28,9 @@ const Sell = () => {
         <input type="number" />
         <p>Namn</p>
         <input type="text" placeholder='Ange ditt namn...' />
+        <button>Publicera auction</button>
       </div>
-    </div> 
+    </div>
   )
 }
 export default Sell
