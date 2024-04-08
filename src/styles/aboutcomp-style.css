@@ -1,0 +1,24 @@
+.about-info{
+    margin: 20px;
+    padding: 20px;
+}
+
+.contact-info {
+    width: 300px; 
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #F2F2F2;
+    width: auto;
+    padding: 20px;
+}
+
+.about-wrapper{
+    max-width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
