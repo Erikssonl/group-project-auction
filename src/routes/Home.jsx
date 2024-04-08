@@ -10,7 +10,7 @@ const Home = () => {
     useEffect (() => {
         const getFromAuctionAPI = () => {
 
-            fetch("https://auctioneer.azurewebsites.net/auction/3tsr")
+            fetch("https://auctioneer2.azurewebsites.net/auction/3tsr")
                 .then(response => response.json())
                 .then(data => {
                     const currentDate = new Date();
@@ -34,6 +34,7 @@ const Home = () => {
     
                 .catch((error) => {
                     console.error("Fetching error:", error)
+                    setAllAuctions([])
                 })
         }
         getFromAuctionAPI()

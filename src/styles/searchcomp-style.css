@@ -29,3 +29,25 @@ input {
     margin-top: 30px;
     margin-left: 40px;
 }
+
+.errorMessage {
+    color: rgb(0, 0, 0);
+    margin-top: 7px;
+    margin-left: 1px;
+    color: red;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.error {
+    display: flex;
+    flex-direction: row;
+}
+
+.errorSymbol {
+    margin-top: 10px;
+    margin-left: 47px;
+}
+
+
+
