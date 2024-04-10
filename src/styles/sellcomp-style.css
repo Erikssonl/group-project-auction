@@ -16,11 +16,31 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.80);
 }
 .dropDown-wrap{
-    display: inline-flex;
-    gap: 3vh;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.80);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     padding: 40px 60px;
-    align-items: flex-start; 
+}
+
+.clickable-text{
+    cursor: pointer;
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+
+.info-item{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.info-image{
+    width: 100px;
+    height: 100px;
+    margin-right: 50px;
+    mix-blend-mode: multiply;
+    
+    
 }
 
 /* h1{
