@@ -1,0 +1,87 @@
+.auctionPreview {
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background-color:  #E4E4E4;
+    padding: 20px;
+    border: 1px solid black;
+    z-index: 1000;
+    width: 60%;
+    height: 80%; 
+    overflow-y: auto;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  }
+
+
+  h6 {
+    margin-bottom: 15px;
+    border-bottom: 1px solid;
+    font-size: 25px;
+  }
+
+  h5 {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+ 
+  .bidContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bidComp {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    border: 1px solid;
+    border-radius: 6px;
+    margin-top: 70px;
+    background-color: white;
+  }
+  
+  .inputField {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 8px;
+  }
+  
+  .sek {
+    margin-right: 8px;
+  }
+  
+  .BidBtn {
+    background-color: rgba(191, 138, 39, 62%);
+    color: black;
+    border: none;
+    padding: 10px;
+    width: 100px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid;
+  }
+  
+  .BidBtn:hover {
+    background-color:  rgba(191, 138, 39, 62%);
+  }
+  .closeBtn {
+    border: none;
+    background-color: #E4E4E4;
+  }
+  
+  .closeBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  .closeBtn:active {
+    opacity: 0.4;
+  }
+  
+  .exit {
+      display: flex; 
+      align-items: right; 
+      justify-content: right;
+  }
