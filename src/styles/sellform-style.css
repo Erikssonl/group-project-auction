@@ -1,0 +1,41 @@
+.sellForm-Wrap{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5vh 0;
+}
+
+.sellForm-Wrap label{
+    text-align: left;
+    display: block;
+    font-size: 20px;
+    margin-top: 3vh;
+}
+
+.sellForm-Wrap input,
+.sellForm-Wrap textarea{
+    width: calc(100% - 20px);
+    padding: 16px 10px;
+    margin: 10px 0;
+    border: 1px solid #000;
+    display: block;
+    text-align: left;
+}
+
+.date-inputs{
+    display: flex;
+    justify-content: space-between;
+    gap: 5%;
+}
+
+.date-inputs > div {
+    flex: 1;
+}
+
+.sellForm-Wrap button{
+    background: rgba(191, 138, 39, 62%);
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 10px 23px;
+    font-size: 16px;
+    margin-top: 3vh;
+}
