@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'; 
+import auctionImg from '../img/auction-img.jpg.webp';
 
 import "../styles/searchcomp-style.css"; 
 
@@ -25,19 +26,24 @@ function SearchComp({ allAuctions }) { // Functional component SearchComp with p
             <button className='searchBtn' onClick={handelFilter}>Sök</button> 
         </div>
 
-        <div> {/* Container for displaying search results */}
+        <div  > {/* Container for displaying search results */}
 
             {/* Conditional rendering based on filterSearch length */}
-            {filterSearch?.length > 0 ? ( // If filterSearch has items
-
-                filterSearch.map((auction, idx) => ( // Map over filterSearch array and render auction details
-
-                    <div key={idx}> {/* Unique key for each rendered auction */}
-                        <h2>{auction.Title}</h2>
-                        <p>{auction.Description}</p> 
-                        <p>{auction.EndDate.split('T')[0]}</p> 
+            {filterSearch?.length > 0 ? (
+                <div>
+                    <h2 className='searchTitle'>Sökresultat:</h2>
+                    <div className='searchResult-wrap'>
+                        {filterSearch.map((auction, idx) => ( // Map over filterSearch array and render auction details
+                                <div className='search-result' key={idx}> {/* Unique key for each rendered auction */}
+                                    <img className='auctionImg' src={auctionImg} alt="" />
+                                    <h2>{auction.Title}</h2>
+                                    <p>Säljare: {auction.CreatedBy}</p>
+                                    <p>Utgångspris: {auction.StartingPrice} SEK</p>
+                                    <p>Auktionen slutar: {auction.EndDate.split('T')[0]}</p> 
+                                </div>
+                        ))}
                     </div>
-                ))
+                </div> // If filterSearch has items
             ) : (
                 searchAttempted &&
                 <div className='error'> 
