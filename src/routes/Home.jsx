@@ -11,6 +11,7 @@ const Home = () => {
     const [auctionDetails, setAuctionDetails] = useState(null)
     const [highestBid, setHighestBid] = useState(0); // State for highest bid
    
+   
     useEffect (() => {
         const getFromAuctionAPI = () => {
 
@@ -43,19 +44,19 @@ const Home = () => {
         }
         getFromAuctionAPI()
     }, []);
-    
-//bidpreview
- // Function to handle selecting a auction
+ // Function to handle selecting an auction when clicked
 const handleAuctionClick = auction => {
-        setSelectedAuction(auction);
-        setAuctionDetails(auction); // Update auction details
-        setHighestBid(auction.HighestBid); // Update highest bid
+    setSelectedAuction(auction.auction); // Sätt den valda auktionens ID
+    setAuctionDetails(auction); // Uppdatera detaljer om den valda auktionen
+    setHighestBid(auction.HighestBid); // Uppdatera det högsta budet för den valda auktionen
 };
 
+// Function to handle closing the bid preview
 const handleCloseBtn = () => {
-    setSelectedAuction(null);
-    setHighestBid(null); //rensa högsta bud när auktion stängs
-}
+    setSelectedAuction(null); // Återställ den valda auktionen till null
+    setHighestBid(null); // Återställ det högsta budet till null när auktionen stängs
+};
+
 
   return (
     <div>
