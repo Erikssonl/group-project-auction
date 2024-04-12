@@ -6,10 +6,12 @@ import logo from '../img/auctioneerlogga.png';
 const Header = () => {
   return (
     <nav className="nav-wrapper">
-        <img className="logo" src={logo} alt="" />
+        <NavLink className="logo" to="/"><img src={logo} alt="" /></NavLink>
+        
+      
         <ul className="navlist">
           <li>
-            <NavLink className="home" to="/home">Hem</NavLink>
+            <NavLink className="home" to="/">Hem</NavLink>
           </li>
           <li>
             <NavLink className="sell" to="/sell">Sälja</NavLink>

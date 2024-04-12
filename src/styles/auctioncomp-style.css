@@ -10,13 +10,18 @@
     flex-direction: column;
     margin: 20px;
     padding: 10px;
-    align-items: center;
     gap: 10px;
     border-radius: 15px;
     background: #E4E4E4;
     box-shadow: 4px 7px 25px 0px rgba(186, 186, 186, 0.7);
 }
 
+
 .auction-wrap:hover {
     cursor: pointer;
+}
+
+.auctionImg{
+    width: 100%;
+    height: auto;
 }
