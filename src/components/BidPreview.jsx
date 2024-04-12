@@ -110,7 +110,7 @@
                     <div className='bidContainer'>
                         <form onSubmit={handleBidSubmit}>
                             <div className='bidComp'>
-                                <input className='inputField' value={bidInput} onChange={(e) => setBidInput(e.target.value)} type="text" disabled={!isAuctionActive} />
+                                <input className='inputField' value={bidInput} onChange={(e) => setBidInput(e.target.value)} type="number" disabled={!isAuctionActive} />
                                 <p className='sek'>SEK</p>
                             </div>
                             <button className='BidBtn' type="submit" disabled={!isAuctionActive}>Lägg Bud</button>
