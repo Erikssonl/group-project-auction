@@ -3,7 +3,7 @@ import auctionImg from '../img/auction-img.jpg.webp';
 
 import "../styles/searchcomp-style.css"; 
 
-function SearchComp({ allAuctions }) { // Functional component SearchComp with props allAuctions
+function SearchComp({ allAuctions, handleAuctionClick}) { // Functional component SearchComp with props allAuctions
     const [searchAttempted, setSearchAttempted] = useState(false);
     const [filterSearch, setFilterSearch] = useState([]); // State hook to manage filtered search results
 
@@ -34,7 +34,7 @@ function SearchComp({ allAuctions }) { // Functional component SearchComp with p
                     <h2 className='searchTitle'>Sökresultat:</h2>
                     <div className='searchResult-wrap'>
                         {filterSearch.map((auction, idx) => ( // Map over filterSearch array and render auction details
-                                <div className='search-result' key={idx}> {/* Unique key for each rendered auction */}
+                                <div className='search-result' key={idx} onClick={() => handleAuctionClick(auction)}> {/* Unique key for each rendered auction */}
                                     <img className='auctionImg' src={auctionImg} alt="" />
                                     <h2>{auction.Title}</h2>
                                     <p>Säljare: {auction.CreatedBy}</p>
