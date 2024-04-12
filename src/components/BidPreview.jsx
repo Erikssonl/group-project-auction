@@ -1,9 +1,9 @@
-    import React, { useState, useEffect } from 'react'; // Importera nödvändiga funktioner från React.
+    import React, { useState, useEffect } from 'react'; 
 
-    import '../styles/BidPreview.css'; // Importera CSS-stilar för BidPreview-komponenten.
+    import '../styles/BidPreview.css'; 
 
     function BidPreview({ selectedAuction, auctionDetails, handleCloseBtn }) {
-        const auctionId = selectedAuction.Id; // Unik identifierare för auktionen.
+        const auctionId = selectedAuction.AuctionID; // Unik identifierare för auktionen.
 
         // Tillstånd för budrelaterade variabler.
         const [bidInput, setBidInput] = useState(''); // Tillstånd för budinmatningsfältet.
