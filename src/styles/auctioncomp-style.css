@@ -16,3 +16,7 @@
     background: #E4E4E4;
     box-shadow: 4px 7px 25px 0px rgba(186, 186, 186, 0.7);
 }
+
+.auction-wrap:hover {
+    cursor: pointer;
+}

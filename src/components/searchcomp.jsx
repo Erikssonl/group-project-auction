@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 
 import "../styles/searchcomp-style.css"; 
 
-function SearchComp({ allAuctions }) { // Functional component SearchComp with props allAuctions
+function SearchComp({ allAuctions, handleAuctionClick}) { // Functional component SearchComp with props allAuctions
     const [searchAttempted, setSearchAttempted] = useState(false);
     const [filterSearch, setFilterSearch] = useState([]); // State hook to manage filtered search results
 
@@ -32,7 +32,7 @@ function SearchComp({ allAuctions }) { // Functional component SearchComp with p
 
                 filterSearch.map((auction, idx) => ( // Map over filterSearch array and render auction details
 
-                    <div key={idx}> {/* Unique key for each rendered auction */}
+                    <div className='searchResult' key={idx} onClick={() => handleAuctionClick(auction)} > {/* Unique key for each rendered auction */}
                         <h2>{auction.Title}</h2>
                         <p>{auction.Description}</p> 
                         <p>{auction.EndDate.split('T')[0]}</p> 
