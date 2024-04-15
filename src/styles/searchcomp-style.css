@@ -71,6 +71,10 @@ input {
     border-bottom: 1px solid black;
 }
 
+.search-result:hover {
+    cursor: pointer;
+}
+
 .search-result{
     display: flex;
     flex-direction: column;

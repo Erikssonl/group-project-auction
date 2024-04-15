@@ -10,6 +10,8 @@ const Home = () => {
     const [selectedAuction, setSelectedAuction] = useState(null)//bidpreviw
     const [auctionDetails, setAuctionDetails] = useState(null)
     const [highestBid, setHighestBid] = useState(0); // State for highest bid
+    
+
    
     useEffect (() => {
         const getFromAuctionAPI = () => {
@@ -45,17 +47,46 @@ const Home = () => {
     }, []);
     
 //bidpreview
- // Function to handle selecting a auction
 const handleAuctionClick = auction => {
-        setSelectedAuction(auction);
-        setAuctionDetails(auction); // Update auction details
-        setHighestBid(auction.HighestBid); // Update highest bid
+    setSelectedAuction(auction);
+    setAuctionDetails(auction);
+    setHighestBid(auction.HighestBid);
 };
 
-const handleCloseBtn = () => {
+const handleCloseBidPreview = () => {
     setSelectedAuction(null);
-    setHighestBid(null); //rensa högsta bud när auktion stängs
-}
+    setAuctionDetails(null);
+    setHighestBid(0);
+};
+
+const handleDeleteAuction = auctionId => {
+    return new Promise((resolve, reject) => {
+        if (!auctionId) {
+            console.error('No auction ID found.');
+            reject('No auction ID found.');
+        }
+
+        fetch(`https://auctioneer2.azurewebsites.net/auction/3tsr/${auctionId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Auction deleted successfully');
+                resolve();
+            } else {
+                console.error('Failed to delete auction');
+                reject('Failed to delete auction');
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting auction:', error);
+            reject(error);
+        });
+    });
+};
 
   return (
     <div>
@@ -68,11 +99,11 @@ const handleCloseBtn = () => {
         key={selectedAuction.Id}
         selectedAuction={selectedAuction}
         auctionDetails={auctionDetails}
-        handleCloseBtn={handleCloseBtn}
-        highestBid={highestBid}
-        setHighestBid={setHighestBid}
+        handleCloseBtn={handleCloseBidPreview}
+        handleDeleteAuction={handleDeleteAuction}
         />
         )}
+
     </div>
   )
 }
