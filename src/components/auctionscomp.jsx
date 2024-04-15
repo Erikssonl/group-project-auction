@@ -18,4 +18,4 @@ const Auctionscomp = ({ activeAuctions, handleAuctionClick }) => {
         </div>
       )
     }
-    export default Auctionscomp
+    export default Auctionscomp;

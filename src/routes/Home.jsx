@@ -1,22 +1,22 @@
-import { useState, useEffect } from 'react';
-import Auctionscomp from '../components/auctionscomp';
-import SearchComp from '../components/SearchComp';
-import BidPreview from '../components/BidPreview';
+import { useState, useEffect } from 'react'; 
+import Auctionscomp from '../components/auctionscomp'; 
+import SearchComp from '../components/SearchComp'; 
+import BidPreview from '../components/BidPreview'; 
 
 const Home = () => {
     const [activeAuctions, setActiveAuctions] = useState([]);
     const [expiredAuctions, setExpiredAuctions] = useState([]);
     const [allAuctions, setAllAuctions] = useState([]);
-    const [selectedAuction, setSelectedAuction] = useState(null); // Bid preview
-    const [auctionDetails, setAuctionDetails] = useState(null);
-    const [highestBid, setHighestBid] = useState(0); // State for highest bid
+    const [selectedAuction, setSelectedAuction] = useState(null); // Tillståndsvariabel för den valda auktionen för budförhandsgranskning
+    const [auctionDetails, setAuctionDetails] = useState(null); // Tillståndsvariabel för detaljer om auktionen
+    const [highestBid, setHighestBid] = useState(0); // Tillståndsvariabel för högsta bud
 
     useEffect(() => {
         const getFromAuctionAPI = () => {
-            fetch("https://auctioneer2.azurewebsites.net/auction/3tsr")
-                .then(response => response.json())
+            fetch("https://auctioneer2.azurewebsites.net/auction/3tsr") 
+                .then(response => response.json()) 
                 .then(data => {
-                    const currentDate = new Date();
+                    const currentDate = new Date(); 
 
                     const activeAuctions = data.filter(auction => {
                         const endDate = new Date(auction.EndDate);
@@ -33,27 +33,27 @@ const Home = () => {
                     setExpiredAuctions(expiredAuctions);
                 })
                 .catch((error) => {
-                    console.error("Fetching error:", error);
-                    setAllAuctions([]);
+                    console.error("Fetching error:", error); 
+                    setAllAuctions([]); 
                 });
         };
         getFromAuctionAPI();
     }, []);
 
-    // Function to handle selecting an auction when clicked
+    // Funktion för att hantera val av auktion för budförhandsgranskning
     const handleAuctionClick = auction => {
-        setSelectedAuction(auction.auction); // Set the selected auction's ID
-        setAuctionDetails(auction); // Update details about the selected auction
-        setHighestBid(auction.HighestBid); // Update the highest bid for the selected auction
+            setSelectedAuction(auction); // Sätt den valda auktionen i tillståndsvariabeln
+            setAuctionDetails(auction); // Uppdatera detaljer om den valda auktionen
+            setHighestBid(auction.HighestBid); // Uppdatera högsta bud för den valda auktionen
     };
 
-    // Function to handle closing the bid preview
-    const handleCloseBidPreview = () => {
-        setSelectedAuction(null); // Reset the selected auction to null
-        setHighestBid(null); // Reset the highest bid to null when the auction is closed
+     // Funktion för att stänga budförhandsgranskningen
+     const handleCloseBidPreview = () => {
+        setSelectedAuction(null); // Återställ den valda auktionen till null
+        setHighestBid(null); // Återställ högsta bud till null när budförhandsgranskningen stängs
     };
 
-    // Function to handle deleting an auction
+    // Funktion för att hantera radering av auktion
     const handleDeleteAuction = auctionId => {
         return new Promise((resolve, reject) => {
             if (!auctionId) {
@@ -61,6 +61,7 @@ const Home = () => {
                 reject('No auction ID found.');
             }
 
+            // Anropa API för att ta bort auktionen med det angivna ID:t
             fetch(`https://auctioneer2.azurewebsites.net/auction/3tsr/${auctionId}`, {
                 method: 'DELETE',
                 headers: {
@@ -69,15 +70,15 @@ const Home = () => {
             })
             .then(response => {
                 if (response.ok) {
-                    console.log('Auction deleted successfully');
+                    console.log('Auction deleted successfully'); // Logga meddelande om auktionen har raderats
                     resolve();
                 } else {
-                    console.error('Failed to delete auction');
+                    console.error('Failed to delete auction'); // Logga felmeddelande om radering misslyckas
                     reject('Failed to delete auction');
                 }
             })
             .catch(error => {
-                console.error('Error deleting auction:', error);
+                console.error('Error deleting auction:', error); // Logga felmeddelande om det uppstår ett fel
                 reject(error);
             });
         });
@@ -85,10 +86,11 @@ const Home = () => {
 
     return (
         <div>
+            {/* Rendera sökkomponenten för att visa alla auktioner och aktiva auktioner */}
             <SearchComp allAuctions={allAuctions} handleAuctionClick={handleAuctionClick} />
             <Auctionscomp activeAuctions={activeAuctions} handleAuctionClick={handleAuctionClick} />
 
-            {/* Bid preview */}
+            {/* Rendera budförhandsgranskningen om en auktion är vald */}
             {selectedAuction && (
                 <BidPreview
                     key={selectedAuction.Id}
@@ -96,6 +98,7 @@ const Home = () => {
                     auctionDetails={auctionDetails}
                     handleCloseBtn={handleCloseBidPreview}
                     handleDeleteAuction={handleDeleteAuction}
+                    handleAuctionClick={handleAuctionClick}
                 />
             )}
         </div>
