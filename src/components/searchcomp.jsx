@@ -3,38 +3,37 @@ import auctionImg from '../img/auction-img.jpg.webp';
 
 import "../styles/searchcomp-style.css"; 
 
-function SearchComp({ allAuctions, handleAuctionClick}) { // Functional component SearchComp with props allAuctions
+function SearchComp({ allAuctions, handleAuctionClick}) {
     const [searchAttempted, setSearchAttempted] = useState(false);
-    const [filterSearch, setFilterSearch] = useState([]); // State hook to manage filtered search results
+    const [filterSearch, setFilterSearch] = useState([]);
+    const searchInput = useRef('');
 
-    const searchInput = useRef(''); // Ref hook to reference the search input field
-
-    const handelFilter = () => { // Function to handle filtering based on search input
-        const search = searchInput.current.value.toLowerCase(); // Get the value of the search input and convert to lowercase
-        const filtered = allAuctions.filter(allAuction => search && allAuction.Title.toLowerCase().includes(search)); // Filter allAuctions based on search input
+    const handelFilter = () => { // Function för hantering av filtrering baserat på sök resultat
+        const search = searchInput.current.value.toLowerCase(); 
+        const filtered = allAuctions.filter(allAuction => search && allAuction.Title.toLowerCase().includes(search)); 
         console.log(filtered)
-        setFilterSearch(filtered); // Update filterSearch state with filtered results
+        setFilterSearch(filtered); // Updatera filterSearch state med filtrerade resultat
         setSearchAttempted(true)
     }
 
 
   return (
-    <> {/* React fragment shorthand for returning multiple elements */}
-        {/* Search input field and button */}
+    <>
+        {/* Search input och buton */}
         <div className='search'>
-            <input ref={searchInput} type="text" placeholder="Sök auktion här..." /> {/* Input field with a ref */}
+            <input ref={searchInput} type="text" placeholder="Sök auktion här..." /> 
             <button className='searchBtn' onClick={handelFilter}>Sök</button> 
         </div>
 
-        <div  > {/* Container for displaying search results */}
+        <div  > {/* Container för att visa sökresultat */}
 
-            {/* Conditional rendering based on filterSearch length */}
+            {/* Resultat om sökning har gjorts */}
             {filterSearch?.length > 0 ? (
                 <div>
                     <h2 className='searchTitle'>Sökresultat:</h2>
                     <div className='searchResult-wrap'>
-                        {filterSearch.map((auction, idx) => ( // Map over filterSearch array and render auction details
-                                <div className='search-result' key={idx} onClick={() => handleAuctionClick(auction)}> {/* Unique key for each rendered auction */}
+                        {filterSearch.map((auction, idx) => ( // Visar auktionsdetaljer för varje element
+                                <div className='search-result' key={idx} onClick={() => handleAuctionClick(auction)}> {/* ID för varje auktion */}
                                     <img className='auctionImg' src={auctionImg} alt="" />
                                     <h2>{auction.Title}</h2>
                                     <p>Säljare: {auction.CreatedBy}</p>
@@ -43,9 +42,10 @@ function SearchComp({ allAuctions, handleAuctionClick}) { // Functional componen
                                 </div>
                         ))}
                     </div>
-                </div> // If filterSearch has items
+                </div> 
             ) : (
                 searchAttempted &&
+                // Error ifall maträtten inte finns
                 <div className='error'> 
                     <p className='errorSymbol'> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="red" className="bi bi-exclamation-circle" viewBox="0 0 16 16">
