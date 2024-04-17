@@ -121,13 +121,19 @@ function BidPreview({ selectedAuction, auctionDetails, handleCloseBtn, handleDel
                         <p className='endDate'>{selectedAuction.EndDate.split('T')[0]}</p>
     
                         {/* Utgångspris för auktion */}
-                        <h4>Utgångsdatum:</h4>
+                        <h4>Utgångspris:</h4>
                         <p className='startingPrice'>{selectedAuction.StartingPrice} Kr</p>
     
                         {/* Högsta bud om auktionen är aktiv */}
                         {isAuctionActive && (
                             <>
                                 <h4>Högsta bud:</h4>
+                                <p className='highestBid'>{realtimeHighestBid} SEK</p>
+                            </>
+                        )}
+                        {!isAuctionActive && (
+                            <>
+                                <h4>Vinnande bud:</h4>
                                 <p className='highestBid'>{realtimeHighestBid} SEK</p>
                             </>
                         )}
