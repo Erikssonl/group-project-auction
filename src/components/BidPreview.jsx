@@ -49,22 +49,22 @@ function BidPreview({ selectedAuction, auctionDetails, handleCloseBtn, handleDel
 
         // Validera budinmatning och hantera fel
         if (!bidInput.trim()) {
-            setError('Please enter a bid amount before placing a bid.'); // Felmeddelande om inget budinmatning finns
+            setError('Vänligen ange ett bud.'); // Felmeddelande om inget budinmatning finns
             return;
         }
 
         if (!isAuctionActive) {
-            setError('The auction is no longer active.'); // Felmeddelande om auktionen inte är aktiv
+            setError('Auktionen är inte längre aktiv.'); // Felmeddelande om auktionen inte är aktiv
             return;
         }
 
         if (bidAmount <= selectedAuction.StartingPrice) {
-            setError('Your bid must be higher than the starting price.'); // Felmeddelande om budet är lägre än utgångspriset
+            setError('Ditt bud måste vara högre än utgångspriset.'); // Felmeddelande om budet är lägre än utgångspriset
             return;
         }
 
         if (bidAmount <= realtimeHighestBid) {
-            setError('Your bid must be higher than the current highest bid.'); // Felmeddelande om budet är lägre än det högsta budet
+            setError('Ditt bud måste vara högre än högsta budet.'); // Felmeddelande om budet är lägre än det högsta budet
             return;
         }
 
@@ -121,7 +121,7 @@ function BidPreview({ selectedAuction, auctionDetails, handleCloseBtn, handleDel
                         <p className='endDate'>{selectedAuction.EndDate.split('T')[0]}</p>
     
                         {/* Utgångspris för auktion */}
-                        <h4>Utgångsdatum:</h4>
+                        <h4>Utgångspris:</h4>
                         <p className='startingPrice'>{selectedAuction.StartingPrice} Kr</p>
     
                         {/* Högsta bud om auktionen är aktiv */}
