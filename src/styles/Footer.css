@@ -1,0 +1,44 @@
+
+
+
+.footer {
+    background: linear-gradient(to bottom, rgba(191, 139, 39, 0.53), #531073);
+    color: white;
+    padding-left: 400px;
+    height: 150px;
+  }
+  
+  .footer-content {
+    display: flex;
+    margin-left: 60px;
+
+  }
+
+  .adress-info {
+    padding-left: 147px;
+  }
+  
+  .contact-info,
+  .address-info,
+  .social-media {
+    margin-left: 160px;
+  }
+  
+  .contact-info h2,
+  .address-info h2,
+  .social-media h2 {
+    width: 100px;
+    
+  }
+
+p {
+    margin: 0px;
+    padding-bottom: 0px;
+}
+
+.social-icons img {
+  height: 32px;
+  width: 32px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
