@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import '../styles/sellcomp-style.css'
 import '../styles/sellform-style.css'
 import Sellinfocomp from "../components/Sellinfocomp"
 import { useState } from 'react'
 
 const Sell = () => {
+  const navigate = useNavigate()
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -11,6 +13,10 @@ const Sell = () => {
   const [startingPrice, setStartingPrice] = useState("");
   const [createdBy, setCreatedBy] = useState("");
   const [isPending, setIsPending] = useState(false);
+
+  const handleNavigate = () => {
+    navigate('/')
+  }
 
   const publishHandler = (e) => {
     e.preventDefault();
@@ -34,6 +40,7 @@ const Sell = () => {
       .then(data => {
         console.log(data)
         setIsPending(false)
+        setTimeout(handleNavigate, 2000);
       })
       .catch(error => console.error('Error:', error));
   }
